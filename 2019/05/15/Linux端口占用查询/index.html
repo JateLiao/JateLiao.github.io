@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="菜是原罪">
+<meta name="description" content="根据端口号查询对应进程1. lsof命令命令如下：1lsof -i:[端口号]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux端口占用查询">
 <meta property="og:url" content="http://liaoshijie.wiki/2019/05/15/Linux端口占用查询/index.html">
 <meta property="og:site_name" content="菜鸟一号廖仕杰">
-<meta property="og:description" content="菜是原罪">
+<meta property="og:description" content="根据端口号查询对应进程1. lsof命令命令如下：1lsof -i:[端口号]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T05:11:10.829Z">
+<meta property="og:image" content="http://qiniupic.liaoshijie.wiki/blog/20190515/s6olMyCeJqLb.png?imageslim">
+<meta property="og:image" content="http://qiniupic.liaoshijie.wiki/blog/20190515/OlVFuMCGqOQM.png?imageslim">
+<meta property="og:updated_time" content="2019-05-15T13:07:27.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux端口占用查询">
-<meta name="twitter:description" content="菜是原罪">
+<meta name="twitter:description" content="根据端口号查询对应进程1. lsof命令命令如下：1lsof -i:[端口号]">
+<meta name="twitter:image" content="http://qiniupic.liaoshijie.wiki/blog/20190515/s6olMyCeJqLb.png?imageslim">
 
 
 
@@ -362,7 +365,16 @@
       
 
       
-        
+        <h1 id="根据端口号查询对应进程"><a href="#根据端口号查询对应进程" class="headerlink" title="根据端口号查询对应进程"></a>根据端口号查询对应进程</h1><h2 id="1-lsof命令"><a href="#1-lsof命令" class="headerlink" title="1. lsof命令"></a>1. lsof命令</h2><p>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:[端口号]</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="lsof命令未安装"><a href="#lsof命令未安装" class="headerlink" title="lsof命令未安装"></a>lsof命令未安装</h3><p>如果<strong>lsof</strong>还未安装，那么就会出现<code>comman not found</code>提示；<br>这种情况需要先安装lsof命令，操作如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lsof</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，便可正常使用该命令了：<br><img src="http://qiniupic.liaoshijie.wiki/blog/20190515/s6olMyCeJqLb.png?imageslim" alt="lsof"><br>如图，结果展示中的<strong>PID</strong>就是占用该端口对应的进程ID；</p>
+<h2 id="2-netstat命令"><a href="#2-netstat命令" class="headerlink" title="2. netstat命令"></a>2. netstat命令</h2><p>命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tun|grep [端口号]</span><br></pre></td></tr></table></figure>
+<h3 id="netstat命令未安装"><a href="#netstat命令未安装" class="headerlink" title="netstat命令未安装"></a>netstat命令未安装</h3><p>同样，如果未安装相关组件，该命令也会出现<code>comman not found</code>提示；<br>处理如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br></pre></td></tr></table></figure></p>
+<p>正常执行结果如下：<br><img src="http://qiniupic.liaoshijie.wiki/blog/20190515/OlVFuMCGqOQM.png?imageslim" alt="netstat"></p>
+<p>其中，末尾的17173就是占用该端口对应的进程ID；</p>
+
       
     </div>
     
@@ -395,6 +407,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/16/【JDK1-8源码学习】ThreadLcoal/" rel="prev" title="【JDK1.8源码学习】ThreadLcoal">
+                【JDK1.8源码学习】ThreadLcoal <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -446,8 +462,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,7 +489,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -486,7 +511,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -509,6 +534,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据端口号查询对应进程"><span class="nav-number">1.</span> <span class="nav-text">根据端口号查询对应进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-lsof命令"><span class="nav-number">1.1.</span> <span class="nav-text">1. lsof命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lsof命令未安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">lsof命令未安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-netstat命令"><span class="nav-number">1.2.</span> <span class="nav-text">2. netstat命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#netstat命令未安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">netstat命令未安装</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -543,6 +584,14 @@
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
+div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> 次&nbsp&nbsp&nbsp
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+
+
 
 
 
@@ -555,8 +604,8 @@
 
 
         
-      </div>
-    </footer>
+      </footer></div>
+    
 
     
       <div class="back-to-top">
@@ -567,7 +616,7 @@
 
     
 
-  </div>
+  
 
   
 
